@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma Maison 400 m² — Abidjan | Plans 2D/3D + Devis détaillé</title>
+<style>
+:root{
+  --accent:#b3541e; --accent2:#3e7c4f; --ink:#2c2a26; --muted:#8a7f6f;
+  --bg:#f6f3ee; --card:#ffffff; --line:#e5ded4;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55}
+header{background:linear-gradient(135deg,#2c3e2f,#3e7c4f 60%,#b3541e); color:#fff; padding:28px 20px 22px; text-align:center}
+header h1{font-size:1.6rem; margin-bottom:6px}
+header p{opacity:.92; font-size:.95rem; max-width:860px; margin:0 auto}
+.stats{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:16px}
+.stats span{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); padding:6px 14px; border-radius:20px; font-size:.85rem}
+nav{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; background:#fff; border-bottom:1px solid var(--line); padding:10px; position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.05)}
+nav button{border:1px solid var(--line); background:#faf8f4; padding:9px 16px; border-radius:8px; cursor:pointer; font-size:.9rem; font-weight:600; color:#5a5348}
+nav button.on{background:var(--accent); border-color:var(--accent); color:#fff}
+main{max-width:1150px; margin:0 auto; padding:24px 16px 60px}
+section{display:none; animation:fade .25s}
+section.on{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+h2{font-size:1.3rem; margin:8px 0 14px; color:#3e3527}
+h3{font-size:1.05rem; margin:20px 0 10px; color:#4a4234}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin:14px 0}
+.card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center}
+.card b{display:block; font-size:1.45rem; color:var(--accent)}
+.card small{color:var(--muted,#776f60); font-size:.8rem}
+.panel{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin:14px 0}
+table{width:100%; border-collapse:collapse; font-size:.88rem; background:#fff}
+th,td{border:1px solid var(--line); padding:7px 9px; text-align:left}
+th{background:#f1ece4; font-size:.8rem; text-transform:uppercase; letter-spacing:.4px}
+td.r,th.r{text-align:right; font-variant-numeric:tabular-nums}
+tr.total td{background:#3e3527; color:#fff; font-weight:700}
+tr.sub td{background:#f6efe4; font-weight:700}
+.note{background:#fdf7ec; border-left:4px solid var(--accent); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.9rem}
+.note-green{border-left-color:var(--accent2); background:#eff6ef}
+.ok{color:#2e7d32; font-weight:700}
+.svgwrap{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; overflow:auto; text-align:center}
+svg text{font-family:inherit}
+.legend{display:flex; flex-wrap:wrap; gap:10px 18px; font-size:.82rem; margin:10px 2px; color:#5a5348}
+.legend i{display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:5px; vertical-align:-2px; border:1px solid rgba(0,0,0,.15)}
+.btn{display:inline-block; border:none; background:var(--accent); color:#fff; padding:9px 18px; border-radius:8px; cursor:pointer; font-size:.9rem; font-weight:600; margin:4px 6px 4px 0}
+.btn2{background:#5a6b5e}
+.btn3{background:#fff; color:#5a5348; border:1px solid var(--line)}
+.btn2.on,.btn3.on{background:var(--accent); color:#fff; border-color:var(--accent)}
+#scene3d{height:560px; background:#e9eef2; border-radius:12px; position:relative; overflow:hidden; border:1px solid var(--line)}
+#scene3d .ctl{position:absolute; top:10px; left:10px; z-index:5; display:flex; flex-wrap:wrap; gap:6px}
+#scene3d .ctl button{background:rgba(255,255,255,.92); border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:.8rem; cursor:pointer}
+#scene3d .ctl button.on{background:var(--accent); color:#fff; border-color:var(--accent)}
+#fallback3d{display:none; position:absolute; inset:0; padding:40px; text-align:center; color:#5a5348}
+.grandtotal{font-size:1.5rem; font-weight:800; color:var(--accent)}
+ul.checks{list-style:none}
+ul.checks li{padding:6px 0 6px 26px; position:relative; border-bottom:1px dashed var(--line); font-size:.92rem}
+ul.checks li::before{content:"✓"; position:absolute; left:4px; color:var(--accent2); font-weight:700}
+.phasebar{height:10px; background:#eee; border-radius:6px; overflow:hidden; display:flex; margin:6px 0 14px}
+.phasebar div{height:100%}
+footer{background:#2c2a26; color:#cfc8bc; text-align:center; padding:22px; font-size:.82rem}
+@media print{
+  nav,#scene3d,.noprint,header .stats{display:none!important}
+  section{display:block!important; page-break-after:always}
+  body{background:#fff}
+  .svgwrap{border:none}
+  #plan2dsvg{width:100%; max-width:760px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>MA MAISON — TERRAIN 400 m² À ABIDJAN</h1>
+  <p>Villa de plain-pied • 3 chambres autonomes (suites) • 2 salons • garage • terrasse • douche visiteurs • buanderie — spacieuse et aérée</p>
+  <div class="stats">
+    <span>✔ 195 m² bâtis</span><span>✔ 3 suites autonomes</span><span>✔ 2 salons</span><span>✔ 4 salles d'eau</span><span>✔ Garage 32 m²</span><span>✔ Terrasse couverte</span><span>✔ Emprise 49 % du terrain</span>
+  </div>
+</header>
+
+<nav>
+  <button data-t="apercu" class="on">Aperçu</button>
+  <button data-t="plan2d">Plan 2D</button>
+  <button data-t="masse">Plan de masse</button>
+  <button data-t="trois">Vue 3D</button>
+  <button data-t="devis">Devis détaillé</button>
+  <button data-t="chantier">Chantier &amp; conseils</button>
+  <button data-t="fiche">Fiche technique</button>
+</nav>
+
+<main>
+
+<!-- ================= APERÇU ================= -->
+<section id="apercu" class="on">
+  <h2>Votre maison en un coup d'œil</h2>
+  <div class="cards-cards">
+  <div class="cards">
+    <div class="card"><b>195 m²</b><small>Surface couverte (emprise au sol)</small></div>
+    <div class="card"><b>151 m²</b><small>Surface habitable (hors garage/terrasse)</small></div>
+    <div class="card"><b>3</b><small>Chambres autonomes avec S.d.B. privée</small></div>
+    <div class="card"><b>2</b><small>Salons (réception + familial)</small></div>
+    <div class="card"><b>4</b><small>Salles d'eau (3 privées + visiteurs)</small></div>
+    <div class="card"><b>32 m²</b><small>Garage (2 places ou 1 + atelier)</small></div>
+  </div>
+  <div class="panel">
+    <h2>Votre demande → la solution proposée</h2>
+    <table>
+      <tr><th>Votre besoin</th><th>Réponse dans le plan</th></tr>
+      <tr><td>3 chambres, chacune autonome</td><td>3 vraies suites : chaque chambre a sa salle d'eau privée + la suite parentale a un dressing</td></tr>
+      <tr><td>2 salons si possible</td><td>Grand salon de réception (18,5 m²) + salon familial / salle à manger (12,3 m²) en enfilade, séparés par une cloison coulissante possible</td></tr>
+      <tr><td>Cuisine</td><td>Cuisine 12,2 m² ouverte sur le salon familial (bar/comptoir), adjacente à la buanderie</td></tr>
+      <tr><td>Douche visiteurs + salle de bain</td><td>Salle d'eau visiteurs (3,5 m²) près de l'entrée, accessible aux invités sans traverser les chambres</td></tr>
+      <tr><td>Buanderie</td><td>Buanderie + débarras de 9 m² avec accès direct cuisine et fenêtre sur jardin</td></tr>
+      <tr><td>Garage</td><td>Garage 32 m² (2 voitures compactes ou 1 voiture + atelier), accès direct au hall sans sortir sous la pluie</td></tr>
+      <tr><td>Terrasse</td><td>Terrasse couverte 11,6 m² au sud-est, ouverte sur le grand salon et la cuisine</td></tr>
+      <tr><td>Spacieux et aéré</td><td>Toutes les pièces ont 2 façades ou baies larges, hauteur sous plafond 2,90 m, ventilation traversante nord-sud, couloir éclairé en bout</td></tr>
+    </table>
+  </div>
+  <div class="panel">
+    <h2>Détail des surfaces</h2>
+    <table id="surfacesTable"></table>
+    <div class="note note-green">💡 <b>Pourquoi ce plan fonctionne :</b> zone nuit au nord (calme, jardin), zone vie au sud (lumière, terrasse), services regroupés à l'est, garage à l'ouest près de l'entrée. Extension possible en R+1 au-dessus des chambres sans toucher aux fondations si prévu dès le départ (+8 à 12 % sur la structure).</div>
+  </div>
+  <div class="panel">
+    <h2>Hypothèses de travail</h2>
+    <ul class="checks">
+      <li>Terrain supposé rectangulaire 20 m × 20 m = 400 m², rue au sud (à adapter à votre parcelle réelle).</li>
+      <li>Maison de plain-pied (R+0) : c'est la formule la moins chère au m² et la plus simple à financer par étapes.</li>
+      <li>Reculs respectés : 3 m sur rue, 2,5 m sur les limites latérales, 4 m à l'arrière.</li>
+      <li>Prix indicatifs Abidjan 2025 (± 20 %) : à confirmer par 3 devis minimum.</li>
+      <li>Le plan devra être signé par un architecte agréé pour le permis de construire.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PLAN 2D ================= -->
+<section id="plan2d">
+  <h2>Plan architectural 2D — niveau R+0 (échelle graphique)</h2>
+  <div class="noprint"><button class="btn" onclick="window.print()">🖨 Imprimer / PDF</button></div>
+  <div class="svgwrap"><svg id="plan2dsvg" viewBox="-2.9 -1.7 21.2 18.2" style="max-width:1000px;width:100%"></svg></div>
+  <div class="legend" id="legend2d"></div>
+  <div class="note">Épaisseur murs extérieurs 20 cm, cloisons 12 cm. Portes 0,70–0,90 m ; porte d'entrée 1,20 m ; porte garage 3,00 m ; baies coulissantes salon 2,80 m et terrasse 2,00 m.</div>
+  <div class="note note-green">Aération : ventilation traversante sur toutes les chambres (2 façades), baie sud 2,80 m au salon, VMC dans la salle d'eau visiteurs. Le couloir reçoit un jour naturel en extrémité ouest ; on peut y ajouter des claustras vitrés côté salon.</div>
+</section>
+
+<!-- ================= PLAN DE MASSE ================= -->
+<section id="masse">
+  <h2>Plan de masse — implantation sur le terrain 20 × 20 m</h2>
+  <div class="svgwrap"><svg id="massesvg" viewBox="-2.6 -2.6 24.6 27.4" style="max-width:640px;width:100%"></svg></div>
+  <div class="panel">
+    <h2>Implantation</h2>
+    <table>
+      <tr><th>Élément</th><th>Position</th></tr>
+      <tr><td>Maison 15 × 13 m</td><td>Centrée, recul 3 m rue / 2,5 m côtés / 4 m fond</td></tr>
+      <tr><td>Portail coulissant motorisé</td><td>Sud-ouest, sur la rue</td></tr>
+      <tr><td>Allée pavée</td><td>De la rue au garage (4,6 × 4 m)</td></tr>
+      <tr><td>Jardin</td><td>Bande nord 4 m + bande est 2,5 m — potager ou extension future</td></tr>
+      <tr><td>Fosse septique + épandage</td><td>Est, hors zone de jardin potager</td></tr>
+      <tr><td>Puits / local technique</td><td>Nord-ouest (option forage en R+)</td></tr>
+    </table>
+    <div class="note">Emprise au sol : 195 m² / 400 m² = <b>49 %</b> (la réglementation courante autorise jusqu'à ~60 %). Le terrain reste respirable : ~205 m² d'espaces libres.</div>
+  </div>
+</section>
+
+<!-- ================= VUE 3D ================= -->
+<section id="trois">
+  <h2>Maquette 3D interactive</h2>
+  <div id="scene3d">
+    <div class="ctl noprint">
+      <button id="bIso" class="on">Vue 3/4</button>
+      <button id="bTop">Vue dessus</button>
+      <button id="bRoof" class="on">Toit : visible</button>
+      <button id="bWalls">Murs : bas (1,4 m)</button>
+      <button id="bSpin">Rotation auto</button>
+    </div>
+    <div id="fallback3d"><b>La vue 3D a besoin d'internet</b><br><small>Elle charge la bibliothèque three.js depuis un CDN. Le plan 2D, le plan de masse et le devis fonctionnent parfaitement hors-ligne. Rouvrez cette page avec une connexion pour voir la maquette 3D.</small></div>
+  </div>
+  <div class="note">Faites glisser pour tourner, molette pour zoomer, clic droit pour déplacer. Les étiquettes indiquent chaque pièce. Basculez « Murs : pleins » pour voir la maison en volume, « Vue dessus » pour relire le plan en 3D.</div>
+</section>
+
+<!-- ================= DEVIS ================= -->
+<section id="devis">
+  <h2>Devis estimatif détaillé — FCFA (indicatif 2025)</h2>
+  <div class="noprint">
+    <button class="btn lvlbtn on" data-lvl="eco">ÉCO — auto-gestion</button>
+    <button class="btn lvlbtn btn2" data-lvl="std">STANDARD — entreprise</button>
+    <button class="btn lvlbtn btn2" data-lvl="prem">PREMIUM</button>
+    <button class="btn btn3" onclick="window.print()">🖨 Imprimer le devis</button>
+  </div>
+  <div class="cards" id="devisCards"></div>
+  <div id="devisTable"></div>
+  <div class="panel">
+    <h2>Options (non incluses ci-dessus)</h2>
+    <table>
+      <tr><th>Option</th><th class="r">Coût estimé</th></tr>
+      <tr><td>Climatisation — 6 splits (3 chambres, 2 salons, cuisine)</td><td class="r">≈ 1 500 000 FCFA</td></tr>
+      <tr><td>Forage + pompe immergée (indépendance eau)</td><td class="r">≈ 1 200 000 – 1 800 000 FCFA</td></tr>
+      <tr><td>Kit solaire hybride (frigo + points vitaux + onduleur)</td><td class="r">≈ 2 500 000 – 4 000 000 FCFA</td></tr>
+      <tr><td>Prédisposition R+1 (fondations/poteaux renforcés dès maintenant)</td><td class="r">+ 8 à 12 % du gros œuvre</td></tr>
+      <tr><td>Piscine (phase ultérieure)</td><td class="r">≈ 8 000 000 – 15 000 000 FCFA</td></tr>
+      <tr><td>Ameublement complet</td><td class="r">≈ 1 500 000 – 3 000 000 FCFA</td></tr>
+    </table>
+  </div>
+  <div class="panel">
+    <h2>Financement par phases (salaire + épargne)</h2>
+    <p style="font-size:.9rem;color:#6a6252">On peut construire étape par étape : chaque phase se paie avec son propre montant, pas besoin des 40 M d'un coup. Les montants suivent le niveau de finition choisi ci-dessus.</p>
+    <table id="phaseTable"></table>
+  </div>
+  <div class="note">Les prix unitaires incluent fourniture + pose, d'après les marchés d'Abidjan (Yopougon, Songon, Bingerville) en 2025. Marge d'erreur ± 20 %. <b>Faites toujours chiffrer par au moins 3 prestataires avant de signer.</b></div>
+</section>
+
+<!-- ================= CHANTIER ================= -->
+<section id="chantier">
+  <h2>Échéancier de chantier &amp; conseils</h2>
+  <div class="panel">
+    <h2>Durées réalistes (niveau STANDARD)</h2>
+    <table>
+      <tr><th>#</th><th>Étape</th><th class="r">Durée</th><th class="r">Coût</th></tr>
+      <tr><td>1</td><td>Étude de sol, plans architecte, permis de construire</td><td class="r">1–2 mois</td><td class="r">4 %</td></tr>
+      <tr><td>2</td><td>Terrassement + fondations (semelles, longrines)</td><td class="r">3–4 semaines</td><td class="r">12 %</td></tr>
+      <tr><td>3</td><td>Élévation : poteaux, poutres, dalle</td><td class="r">4–6 semaines</td><td class="r">16 %</td></tr>
+      <tr><td>4</td><td>Maçonnerie + enduits + toiture (hors d'eau)</td><td class="r">5–7 semaines</td><td class="r">18 %</td></tr>
+      <tr><td>5</td><td>Plomberie, électricité, menuiseries, VMC</td><td class="r">4–6 semaines</td><td class="r">20 %</td></tr>
+      <tr><td>6</td><td>Finitions : plafonds, carrelage, faïence, peinture, cuisine</td><td class="r">6–8 semaines</td><td class="r">22 %</td></tr>
+      <tr><td>7</td><td>Extérieur : clôture, portail, pavés, jardin, raccordements</td><td class="r">3–4 semaines</td><td class="r">8 %</td></tr>
+      <tr class="total"><td></td><td>TOTAL</td><td class="r">≈ 7–10 mois</td><td class="r">100 %</td></tr>
+    </table>
+    <div class="note">En auto-gestion (niveau ÉCO), comptez plutôt 10 à 14 mois : vous orchestrez vous-même maçons, plombier, électricien. Économie 15–25 M FCFA, mais exige de la disponibilité.</div>
+  </div>
+  <div class="panel">
+    <h2>10 conseils pour tenir le budget</h2>
+    <ul class="checks">
+      <li><b>3 devis minimum</b> pour chaque lot (entreprise, artisans, matériaux) — les écarts atteignent 30 %.</li>
+      <li><b>Jamais plus de 30 % d'acompte</b> ; payez par tranches validées sur place (« bloc par bloc »).</li>
+      <li>Faites le gros œuvre en <b>saison sèche</b> (novembre → avril) ; la pluie ruine les fondations et les délais.</li>
+      <li>Achetez ciment et fer par <b>palettes complètes</b> chez les grossistes (Adjamé, Yopougon) plutôt qu'au détail.</li>
+      <li>Signez un <b>contrat écrit</b> même avec un artisan : travaux, prix, délais, pénalités.</li>
+      <li>Gardez <b>7–10 % pour les imprévus</b> — c'est déjà dans le devis, ne l'utilisez pas pour « améliorer » en cours de route.</li>
+      <li>Si vous rêvez d'un étage plus tard, dites-le <b>maintenant</b> à l'ingénieur : renforcer les fondations coûte 8–12 % aujourd'hui, mais 3× plus si on reprend après coup.</li>
+      <li>Électricité : prévoyez <b>tableau + onduleur</b> (coupures fréquentes) ; câblage fait une seule fois, bien dimensionné.</li>
+      <li>Sécurisez le chantier : gardiennage + stockage matériaux ; le vol de tôles et de ciment est le budget caché n°1.</li>
+      <li>Documentez tout (photos, factures) : utile pour la réception des travaux, la garantie et la revente.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2>Documents à préparer</h2>
+    <ul class="checks">
+      <li>ACD ou titre foncier du terrain à jour (vérifié à la conservation foncière).</li>
+      <li>Plan signé par un architecte agréé (obligatoire pour le permis).</li>
+      <li>Permis de construire à la mairie / district d'Abidjan.</li>
+      <li>Assurance tous risques chantier (recommandée).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FICHE TECHNIQUE ================= -->
+<section id="fiche">
+  <h2>Fiche technique — à remettre à l'architecte / à l'entreprise</h2>
+  <div class="noprint"><button class="btn" onclick="window.print()">🖨 Imprimer / PDF</button></div>
+  <div class="panel">
+    <table>
+      <tr><th colspan="2">GÉNÉRALITÉS</th></tr>
+      <tr><td>Type</td><td>Villa individuelle de plain-pied (R+0), toiture 4 pentes faible pente</td></tr>
+      <tr><td>Terrain</td><td>400 m² (20 × 20 m), Abidjan</td></tr>
+      <tr><td>Emprise au sol</td><td>195 m² (49 %) — SHOB ≈ 195 m², surface habitable ≈ 151 m²</td></tr>
+      <tr><td>Hauteur</td><td>2,90 m sous plafond habitable</td></tr>
+      <tr><td>Programme</td><td>3 chambres autonomes (S.d.B. privée chacune), grand salon, salon familial + salle à manger, cuisine, salle d'eau visiteurs, buanderie-débarras, garage 2 places, terrasse couverte, hall central</td></tr>
+      <tr><th colspan="2">STRUCTURE</th></tr>
+      <tr><td>Fondations</td><td>Semelles isolées BA (≈ 26) + longrines + chaînage bas, sur terre-plein compacté</td></tr>
+      <tr><td>Structure</td><td>Poteaux-poutres béton armé + chaînages ( BA 400/500, acier HA )</td></tr>
+      <tr><td>Dalle basse</td><td>Hourdis 16 + 4, treillis soudé, béton de propreté + polyane</td></tr>
+      <tr><td>Murs</td><td>Parpaings 15 ext. (enduit double face), cloisons 10</td></tr>
+      <tr><td>Toiture</td><td>Charpente bois traité anti-termites, tôles bac acier prélaqué, débords 0,60 m, gouttières EP</td></tr>
+      <tr><th colspan="2">ÉQUIPEMENTS</th></tr>
+      <tr><td>Eau</td><td>Réseau SODECI + chauffe-eau 2 × 100 L + fosse septique béton + épandage</td></tr>
+      <tr><td>Électricité</td><td>Compteur CIE, tableau différentiel, mise à la terre, prévision onduleur</td></tr>
+      <tr><td>Menuiseries</td><td>Aluminium vitré : 12 fenêtres, 3 baies coulissantes, porte d'entrée blindée, porte garage 3 m</td></tr>
+      <tr><td>Sanitaires</td><td>4 salles d'eau (3 privées + visiteurs) : douche italienne, WC, lavabo</td></tr>
+      <tr><td>Climatisation</td><td>Gaines/gains prévus ; splits en option (6 unités)</td></tr>
+      <tr><th colspan="2">CONFORT</th></tr>
+      <tr><td>Ventilation</td><td>Traversante sur chambres et salons ; VMC S.d.B. visiteurs ; couloir ventilé en extrémité</td></tr>
+      <tr><td>Orientation</td><td>Zone nuit au nord (fraîche), zone vie au sud, terrasse sud-est — à confirmer selon l'orientation réelle de la parcelle</td></tr>
+      <tr><td>Extension</td><td>Possible R+1 au-dessus de la bande des chambres si fondations prévues</td></tr>
+    </table>
+    <div class="panel">
+      <h2>Prochaines étapes</h2>
+      <ul class="checks">
+        <li>☐ Vérifier le titre foncier / ACD</li>
+        <li>☐ Étude de sol géotechnique (~350 000 FCFA)</li>
+        <li>☐ Confier ce dossier à un architecte agréé pour le plan d'exécution + permis</li>
+        <li>☐ Demander 3 devis (entreprise clé en main + artisans pour comparaison)</li>
+        <li>☐ Bloquer le financement phase 1 (~16 % du total)</li>
+        <li>☐ Démarrer le gros œuvre en saison sèche</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Dossier indicatif généré pour terrain de 400 m² à Abidjan — prix FCFA indicatifs 2025, à valider par un architecte agréé et une étude de sol.
+  Ne constitue pas un plan d'exécution : le permis de construire exige des plans signés par un professionnel.
+</footer>
+
+<!-- ================= THREE.JS ================= -->
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+try{
+  const THREE = await import('three');
+  const {OrbitControls} = await import('three/addons/controls/OrbitControls.js');
+  window.__init3D(THREE, OrbitControls);
+}catch(e){ window.__threeFailed(e); }
+</script>
+
+<!-- ================= APP ================= -->
+<script>
+"use strict";
+const fmt = n => Math.round(n).toLocaleString('fr-FR') + ' FCFA';
+const fmtM = n => (n/1000000).toLocaleString('fr-FR', {maximumFractionDigits:1}) + ' M FCFA';
+const NS = 'http://www.w3.org/2000/svg';
+function el(t, a, parent){ const e = document.createElementNS(NS, t); for(const k in a) e.setAttribute(k, a[k]); if(parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, size, opts){
+  opts = opts || {};
+  const t = el('text', {x, y, 'font-size':size, fill:opts.fill||'#3a352c', 'text-anchor':opts.anchor||'middle', 'font-weight':opts.w||'normal', 'font-family':'Arial, sans-serif'}, parent);
+  if(opts.transform) t.setAttribute('transform', opts.transform);
+  t.textContent = s; return t;
+}
+
+/* ---------- DONNÉES PLAN (mètres, origine nord-ouest, y vers le sud) ---------- */
+const W = 15, D = 13;
+const COLORS = {ch:'#fbe3c9', wet:'#cfe6f2', liv:'#f9edb9', kit:'#d8ecc8', ser:'#e4e4e4', circ:'#f1ece4', gar:'#d9d9d9', ter:'#dcead2'};
+const LEGEND = [['ch','Chambres'],['wet','Salles d\'eau / dressing'],['liv','Salons'],['kit','Cuisine'],['ser','Buanderie / débarras'],['circ','Hall / couloir'],['gar','Garage'],['ter','Terrasse couverte']];
+const rooms = [
+ {n:'CHAMBRE PARENTALE', p:[[0,0],[4,0],[4,4.6],[0,4.6]], a:18.4, t:'ch'},
+ {n:'S.d.B.', p:[[4,0],[5.5,0],[5.5,2.6],[4,2.6]], a:3.9, t:'wet', fs:0.2},
+ {n:'Dressing', p:[[4,2.6],[5.5,2.6],[5.5,4.6],[4,4.6]], a:3.0, t:'wet', fs:0.2},
+ {n:'CHAMBRE 2', p:[[5.5,0],[8,0],[8,2],[9.5,2],[9.5,4.6],[5.5,4.6]], a:15.4, t:'ch'},
+ {n:'S.d.B.', p:[[8,0],[9.5,0],[9.5,2],[8,2]], a:3.0, t:'wet', fs:0.2},
+ {n:'CHAMBRE 3', p:[[9.5,0],[12,0],[12,2],[13.5,2],[13.5,4.6],[9.5,4.6]], a:15.4, t:'ch'},
+ {n:'S.d.B.', p:[[12,0],[13.5,0],[13.5,2],[12,2]], a:3.0, t:'wet', fs:0.2},
+ {n:'BUANDERIE • DÉBARRAS', p:[[13.5,0],[15,0],[15,6],[13.5,6]], a:9.0, t:'ser', fs:0.22, lp:[14.25,3]},
+ {n:'Couloir', p:[[0,4.6],[13.5,4.6],[13.5,6],[0,6]], a:18.9, t:'circ', fs:0.24, lp:[6.75,5.3]},
+ {n:'GARAGE', p:[[0,6],[4.6,6],[4.6,13],[0,13]], a:32.2, t:'gar', lp:[2.3,9.6]},
+ {n:'S.d.B. VISITEURS', p:[[4.6,8.4],[6.2,8.4],[6.2,10.6],[4.6,10.6]], a:3.5, t:'wet', fs:0.17, lp:[5.4,9.5]},
+ {n:"HALL D'ENTRÉE", p:[[6.2,6],[7.2,6],[7.2,13],[4.6,13],[4.6,10.6],[6.2,10.6],[6.2,8.4],[4.6,8.4]], a:14.7, t:'circ', fs:0.22, lp:[5.9,11.9]},
+ {n:'SALON FAMILIAL + S.À M.', p:[[7.2,6],[11.6,6],[11.6,8.8],[7.2,8.8]], a:12.3, t:'liv', fs:0.22, lp:[9.4,7.4]},
+ {n:'GRAND SALON', p:[[7.2,8.8],[11.6,8.8],[11.6,13],[7.2,13]], a:18.5, t:'liv', lp:[9.4,10.9]},
+ {n:'CUISINE', p:[[11.6,6],[15,6],[15,9.6],[11.6,9.6]], a:12.2, t:'kit', lp:[13.3,7.8]},
+ {n:'TERRASSE', p:[[11.6,9.6],[15,9.6],[15,13],[11.6,13]], a:11.6, t:'ter', lp:[13.3,11.3]}
+];
+const eWalls = [
+ {a:[0,0], b:[15,0], t:0.2, gaps:[[1.2,2.8,1.0],[4.3,5.1,1.5],[6.3,7.7,1.0],[10.3,11.7,1.0],[13.9,14.7,1.2]]},
+ {a:[15,0], b:[15,9.6], t:0.2, gaps:[[7.0,8.6,1.2]]},
+ {a:[0,13], b:[11.6,13], t:0.2, gaps:[[0.6,3.8,0],[5.2,6.4,0],[7.8,10.6,0]]},
+ {a:[0,13], b:[0,0], t:0.2, gaps:[[3,5,1.2],[7.3,8.1,1.2],[10,11.5,1.0]]}
+];
+const iWalls = [
+ {a:[4,0], b:[4,4.6], t:0.12, gaps:[[3.0,3.9,0]]},
+ {a:[4,2.6], b:[5.5,2.6], t:0.12, gaps:[[0.4,1.1,0]]},
+ {a:[5.5,0], b:[5.5,4.6], t:0.12, gaps:[]},
+ {a:[8,0], b:[8,2], t:0.12, gaps:[]},
+ {a:[8,2], b:[9.5,2], t:0.12, gaps:[[0.4,1.1,0]]},
+ {a:[9.5,0], b:[9.5,4.6], t:0.12, gaps:[]},
+ {a:[12,0], b:[12,2], t:0.12, gaps:[]},
+ {a:[12,2], b:[13.5,2], t:0.12, gaps:[[0.4,1.1,0]]},
+ {a:[13.5,0], b:[13.5,6], t:0.12, gaps:[]},
+ {a:[0,4.6], b:[13.5,4.6], t:0.12, gaps:[[1.4,2.4,0],[6.9,7.9,0],[10.9,11.9,0]]},
+ {a:[0,6], b:[4.6,6], t:0.12, gaps:[]},
+ {a:[4.6,6], b:[4.6,13], t:0.12, gaps:[[5.4,6.4,0]]},
+ {a:[7.2,6], b:[7.2,13], t:0.12, gaps:[[0.4,2.2,0],[4.4,6.2,0]]},
+ {a:[7.2,6], b:[11.6,6], t:0.12, gaps:[]},
+ {a:[11.6,6], b:[13.5,6], t:0.12, gaps:[]},
+ {a:[13.5,6], b:[15,6], t:0.12, gaps:[[0.3,1.1,0]]},
+ {a:[6.2,8.4], b:[6.2,10.6], t:0.12, gaps:[[0.6,1.6,0]]},
+ {a:[4.6,8.4], b:[6.2,8.4], t:0.12, gaps:[]},
+ {a:[4.6,10.6], b:[6.2,10.6], t:0.12, gaps:[]},
+ {a:[7.2,8.8], b:[11.6,8.8], t:0.12, gaps:[[0.4,3.4,0]]},
+ {a:[11.6,6], b:[11.6,9.6], t:0.12, gaps:[[0.4,2.2,0]]},
+ {a:[11.6,9.6], b:[15,9.6], t:0.12, gaps:[[2.0,2.8,0]]},
+ {a:[11.6,9.6], b:[11.6,13], t:0.12, gaps:[[1.0,3.0,0]]}
+];
+const doors = [
+ {h:[5.2,13], u:[1,0], n:[0,-1], l:1.2},
+ {h:[4.6,12.4], u:[0,-1], n:[1,0], l:1.0},
+ {h:[6.2,10.0], u:[0,-1], n:[1,0], l:1.0},
+ {h:[4.0,3.0], u:[0,1], n:[1,0], l:0.9},
+ {h:[5.1,2.6], u:[-1,0], n:[0,-1], l:0.7},
+ {h:[9.1,2.0], u:[-1,0], n:[0,-1], l:0.7},
+ {h:[13.1,2.0], u:[-1,0], n:[0,-1], l:0.7},
+ {h:[2.4,4.6], u:[0,-1], n:[0,-1], l:1.0},
+ {h:[7.9,4.6], u:[0,-1], n:[0,-1], l:1.0},
+ {h:[11.9,4.6], u:[0,-1], n:[0,-1], l:1.0},
+ {h:[13.6,9.6], u:[1,0], n:[0,-1], l:0.8},
+ {h:[13.8,6], u:[1,0], n:[0,-1], l:0.8}
+];
+const opens = [
+ {a:[4.6,6], b:[7.2,6], lab:"OUVERTURE"},
+ {a:[7.2,6.4], b:[7.2,8.2], lab:""},
+ {a:[7.2,10.4], b:[7.2,12.2], lab:""},
+ {a:[7.6,8.8], b:[10.6,8.8], lab:"CLOISON COULISSANTE"},
+ {a:[11.6,6.4], b:[11.6,8.2], lab:"BAR"},
+ {a:[11.6,10.6], b:[11.6,12.6], lab:"BAIE COUL. 2.00"}
+];
+
+function polyCenter(r){
+  if(r.lp) return r.lp;
+  let x=0, y=0; r.p.forEach(p=>{x+=p[0]; y+=p[1];});
+  return [x/r.p.length, y/r.p.length];
+}
+function polyPath(p){ return p.map(pt=>pt[0]+','+pt[1]).join(' '); }
+
+/* ---------- RENDU PLAN 2D ---------- */
+function renderPlan2D(){
+  const svg = document.getElementById('plan2dsvg');
+  svg.innerHTML = '';
+  const g = el('g', {}, svg);
+  rooms.forEach(r => el('polygon', {points:polyPath(r.p), fill:COLORS[r.t], stroke:'none'}, g));
+  el('rect', {x:0, y:0, width:W, height:D, fill:'none', stroke:'#33322f', 'stroke-width':0.2}, g);
+  iWalls.forEach(w => el('line', {x1:w.a[0], y1:w.a[1], x2:w.b[0], y2:w.b[1], stroke:'#33322f', 'stroke-width':w.t}, g));
+  eWalls.forEach(w => el('line', {x1:w.a[0], y1:w.a[1], x2:w.b[0], y2:w.b[1], stroke:'#33322f', 'stroke-width':w.t}, g));
+  const wallVec = w => { const dx=w.b[0]-w.a[0], dy=w.b[1]-w.a[1], L=Math.hypot(dx,dy); return {ux:dx/L, uy:dy/L, L}; };
+  eWalls.forEach(w => {
+    const {ux,uy,L} = wallVec(w);
+    w.gaps.forEach(gp=>{
+      const [s,e] = gp;
+      const px = w.a[0]+ux*s, py = w.a[1]+uy*s, ex = w.a[0]+ux*e, ey = w.a[1]+uy*e;
+      el('line', {x1:px, y1:py, x2:ex, y2:ey, stroke:'#fff', 'stroke-width':w.t+0.02}, g);
+      el('line', {x1:px, y1:py, x2:ex, y2:ey, stroke:'#7a746a', 'stroke-width':0.05}, g);
+    });
+  });
+  opens.forEach(o=>{
+    el('line', {x1:o.a[0], y1:o.a[1], x2:o.b[0], y2:o.b[1], stroke:'#b3541e', 'stroke-width':0.06, 'stroke-dasharray':'0.35 0.2'}, g);
+    if(o.lab){
+      const mx=(o.a[0]+o.b[0])/2, my=(o.a[1]+o.b[1])/2;
+      const horiz = Math.abs(o.b[1]-o.a[1]) < 0.01;
+      txt(g, mx + (horiz?0:0.35), my + (horiz?0.45:0), o.lab, 0.18, {fill:'#b3541e', anchor:'start'});
+    }
+  });
+  doors.forEach(d=>{
+    const hx=d.h[0], hy=d.h[1], fx=hx+d.u[0]*d.l, fy=hy+d.u[1]*d.l, lx=hx+d.n[0]*d.l, ly=hy+d.n[1]*d.l;
+    const spanW = d.l + 0.1;
+    el('line', {x1:hx - d.u[0]*0.05, y1:hy - d.u[1]*0.05, x2:fx + d.u[0]*0.05, y2:fy + d.u[1]*0.05, stroke:'#fff', 'stroke-width':0.26}, g);
+    el('line', {x1:hx, y1:hy, x2:lx, y2:ly, stroke:'#b3541e', 'stroke-width':0.07}, g);
+    const cross = d.u[0]*d.n[1] - d.u[1]*d.n[0];
+    el('path', {d:`M ${lx} ${ly} A ${d.l} ${d.l} 0 0 ${cross>0?0:1} ${fx} ${fy}`, fill:'none', stroke:'#b3541e', 'stroke-width':0.045, 'stroke-dasharray':'0.12 0.08'}, g);
+  });
+  el('rect', {x:0.6, y:13, width:3.2, height:0.02, stroke:'#33322f', 'stroke-width':0.08, fill:'none'}, g);
+  txt(g, 2.2, 13.85, 'PORTE GARAGE 3.00 m', 0.24, {fill:'#33322f'});
+  rooms.forEach(r=>{
+    const c = polyCenter(r);
+    txt(g, c[0], c[1]-0.12, r.n, r.fs||0.26, {w:'bold'});
+    txt(g, c[0], c[1]+0.35, r.a.toLocaleString('fr-FR',{minimumFractionDigits:1})+' m²', (r.fs||0.26)*0.85, {fill:'#7a746a'});
+  });
+  const dimRow = (y, segs) => {
+    el('line', {x1:segs[0][0], y1:y, x2:segs[segs.length-1][1], y2:y, stroke:'#8a7f6f', 'stroke-width':0.03}, g);
+    segs.forEach(s=>{
+      el('line', {x1:s[0], y1:y-0.1, x2:s[0], y2:y+0.1, stroke:'#8a7f6f', 'stroke-width':0.05}, g);
+      txt(g, (s[0]+s[1])/2, y-0.14, (s[1]-s[0]).toFixed(2)+' m', 0.24, {fill:'#6a6152'});
+    });
+    el('line', {x1:segs[segs.length-1][1], y1:y-0.1, x2:segs[segs.length-1][1], y2:y+0.1, stroke:'#8a7f6f', 'stroke-width':0.05}, g);
+  };
+  dimRow(14.0, [[0,4.6],[4.6,7.2],[7.2,11.6],[11.6,15]]);
+  dimRow(14.9, [[0,15]]);
+  const dimCol = (x, segs) => {
+    el('line', {x1:x, y1:segs[0][0], x2:x, y2:segs[segs.length-1][1], stroke:'#8a7f6f', 'stroke-width':0.03}, g);
+    segs.forEach(s=>{
+      el('line', {x1:x-0.1, y1:s[0], x2:x+0.1, y2:s[0], stroke:'#8a7f6f', 'stroke-width':0.05}, g);
+      txt(g, x-0.15, (s[0]+s[1])/2, (s[1]-s[0]).toFixed(2)+' m', 0.24, {fill:'#6a6152', anchor:'end', transform:`rotate(-90 ${x-0.15} ${(s[0]+s[1])/2})`});
+    });
+  };
+  dimCol(-0.9, [[0,4.6],[4.6,6],[6,13]]);
+  el('circle', {cx:16.6, cy:0.8, r:0.62, fill:'none', stroke:'#3e7c4f', 'stroke-width':0.07}, g);
+  el('path', {d:'M 16.6 0.25 L 16.35 1.15 L 16.6 0.9 L 16.85 1.15 Z', fill:'#3e7c4f'}, g);
+  txt(g, 16.6, 1.75, 'N', 0.3, {fill:'#3e7c4f', w:'bold'});
+  txt(g, 7.5, 16.3, 'VILLA R+0 — 195 m² couverts — 3 chambres autonomes, 2 salons, garage, terrasse', 0.32, {w:'bold', fill:'#3e3527'});
+  const lg = document.getElementById('legend2d');
+  lg.innerHTML = '';
+  LEGEND.forEach(l=>{ lg.insertAdjacentHTML('beforeend', `<span><i style="background:${COLORS[l[0]]}"></i>${l[1]}</span>`); });
+}
+
+/* ---------- RENDU PLAN DE MASSE ---------- */
+function renderMasse(){
+  const svg = document.getElementById('massesvg');
+  svg.innerHTML = '';
+  const g = el('g', {}, svg);
+  el('rect', {x:-2, y:20, width:24, height:3, fill:'#b9b6ae'}, g);
+  el('rect', {x:-2, y:20, width:24, height:0.35, fill:'#8f8c84'}, g);
+  txt(g, 10, 21.9, 'VOIE / RUE', 0.5, {fill:'#6a675e'});
+  el('rect', {x:0, y:0, width:20, height:20, fill:'#eef3e4', stroke:'#6b5d4f', 'stroke-width':0.25}, g);
+  el('rect', {x:2.5, y:3, width:15, height:13, fill:'#e6dfd2', stroke:'#33322f', 'stroke-width':0.12}, g);
+  el('rect', {x:14.1, y:12.6, width:3.4, height:3.4, fill:'#dcead2', stroke:'#3e7c4f', 'stroke-width':0.06, 'stroke-dasharray':'0.3 0.2'}, g);
+  txt(g, 15.8, 14.5, 'TERRASSE', 0.28, {fill:'#3e7c4f', w:'bold'});
+  el('rect', {x:2.5, y:16, width:4.6, height:4, fill:'#d9d2c4'}, g);
+  txt(g, 4.8, 18.3, 'ALLÉE', 0.3, {fill:'#6a6152'});
+  el('line', {x1:2.5, y1:20, x2:5.9, y2:20, stroke:'#b3541e', 'stroke-width':0.3}, g);
+  txt(g, 4.2, 19.55, 'PORTAIL', 0.3, {fill:'#b3541e', w:'bold'});
+  [[17.5,5],[18.7,9],[18,13.5],[5,1.3],[10,1.3],[15,1.3]].forEach(p=>{
+    el('circle', {cx:p[0], cy:p[1], r:0.55, fill:'#b7cc9e', stroke:'#7a9464', 'stroke-width':0.06}, g);
+  });
+  el('circle', {cx:18.3, cy:4.5, r:0.8, fill:'#cfe6f2', stroke:'#5a7d94', 'stroke-width':0.07}, g);
+  txt(g, 18.3, 4.62, 'F.S.', 0.35, {fill:'#3c586e', w:'bold'});
+  el('circle', {cx:1.4, cy:1.4, r:0.7, fill:'#cfe6f2', stroke:'#5a7d94', 'stroke-width':0.06}, g);
+  txt(g, 1.4, 2.6, 'Puits', 0.3, {fill:'#3c586e'});
+  txt(g, 10, -0.7, 'TERRAIN 400 m² — 20,00 × 20,00 m — Villa R+0 195 m²', 0.42, {w:'bold', fill:'#3e3527'});
+  txt(g, 1.6, 11.5, '2,50 m', 0.32, {fill:'#8a7f6f', transform:'rotate(-90 1.6 11.5)'});
+  txt(g, 18.5, 11.5, '2,50 m', 0.32, {fill:'#8a7f6f', transform:'rotate(-90 18.5 11.5)'});
+  txt(g, 10, 1.0, 'recul fond : 4,00 m', 0.3, {fill:'#8a7f6f'});
+  txt(g, 10, 17.6, 'recul rue : 3,00 m', 0.3, {fill:'#8a7f6f'});
+  el('circle', {cx:19.2, cy:1.0, r:0.55, fill:'#fff', stroke:'#3e7c4f', 'stroke-width':0.07}, g);
+  el('path', {d:'M 19.2 0.45 L 18.95 1.35 L 19.2 1.1 L 19.45 1.35 Z', fill:'#3e7c4f'}, g);
+  txt(g, 19.2, 1.85, 'N', 0.35, {fill:'#3e7c4f', w:'bold'});
+  txt(g, 10, 23.9, 'Jardin nord (4 m) et est (2,5 m) — extension R+1 possible au-dessus des chambres', 0.34, {fill:'#6a6152'});
+}
+
+/* ---------- DEVIS ---------- */
+const LEVELS = {
+  eco: {name:'ÉCO — auto-gestion', imp:0.07, duree:'10–14 mois (auto-gestion)'},
+  std: {name:'STANDARD — entreprise', imp:0.10, duree:'7–10 mois (entreprise)'},
+  prem:{name:'PREMIUM — haut de gamme', imp:0.10, duree:'8–11 mois (entreprise)'}
+};
+const DEV = [
+ {c:'A. ÉTUDES & DÉMARCHES', items:[
+  {l:'Étude de sol géotechnique', u:'forfait', q:1, p:[350000,400000,500000]},
+  {l:'Plans architecte (2D/3D + dossier permis)', u:'forfait', q:1, p:[900000,1500000,2000000]},
+  {l:'Permis de construire + taxes', u:'forfait', q:1, p:[350000,450000,600000]},
+  {l:"Maîtrise d'œuvre / suivi de chantier", u:'forfait', q:1, p:[0,2200000,3000000]}
+ ]},
+ {c:'B. TERRASSEMENT & FONDATIONS', items:[
+  {l:'Installation de chantier + terrassement', u:'forfait', q:1, p:[600000,850000,900000]},
+  {l:'Semelles isolées béton armé (≈ 26 u)', u:'u', q:26, p:[60000,80000,100000]},
+  {l:'Longrines + chaînage bas (≈ 56 ml)', u:'ml', q:56, p:[32000,42000,50000]},
+  {l:'Remblai compacté + film polyane (195 m²)', u:'m²', q:195, p:[2500,3000,4000]}
+ ]},
+ {c:'C. GROS ŒUVRE (STRUCTURE)', items:[
+  {l:'Dalle sur terre-plein hourdis 16+4', u:'m²', q:195, p:[16000,20000,26000]},
+  {l:'Poteaux, poutres et chaînages BA + acier HA', u:'forfait', q:1, p:[3600000,4200000,5200000]},
+  {l:"Perron d'entrée + dalle terrasse couverte", u:'forfait', q:1, p:[600000,800000,1100000]}
+ ]},
+ {c:'D. MAÇONNERIE & ENDUITS', items:[
+  {l:'Murs parpaings 15/10 + linteaux (≈ 330 m²)', u:'m²', q:330, p:[8000,9500,12000]},
+  {l:'Enduits intérieurs + extérieurs (≈ 680 m²)', u:'m²', q:680, p:[2200,2800,3800]}
+ ]},
+ {c:'E. TOITURE & PLAFONDS', items:[
+  {l:'Charpente bois traité anti-termites (≈ 240 m²)', u:'m²', q:240, p:[7500,9000,12500]},
+  {l:'Couverture tôles bac acier prélaqué (≈ 240 m²)', u:'m²', q:240, p:[3500,4400,6000]},
+  {l:'Faîtières, gouttières et descentes EP (56 ml)', u:'ml', q:56, p:[4000,5000,7000]},
+  {l:'Isolation sous toiture + pare-vapeur', u:'m²', q:240, p:[0,2500,3500]},
+  {l:'Faux plafonds BA13 hydrofuge + corniches (≈ 175 m²)', u:'m²', q:175, p:[4500,6500,9000]}
+ ]},
+ {c:'F. MENUISERIES', items:[
+  {l:'Fenêtres aluminium vitrées (12 u)', u:'u', q:12, p:[90000,140000,200000]},
+  {l:'Baies coulissantes aluminium (3 u)', u:'u', q:3, p:[350000,500000,750000]},
+  {l:'Portes intérieures (9 u)', u:'u', q:9, p:[75000,120000,160000]},
+  {l:"Porte d'entrée de sécurité", u:'u', q:1, p:[350000,700000,950000]},
+  {l:'Porte de garage métallique 3,00 m', u:'u', q:1, p:[550000,800000,1100000]}
+ ]},
+ {c:'G. PLOMBERIE & SANITAIRE', items:[
+  {l:'Réseaux eau froide/chaude + évacuations + VMC', u:'forfait', q:1, p:[1100000,1600000,2200000]},
+  {l:"Équipement sanitaire — 4 salles d'eau", u:'ens', q:4, p:[200000,350000,600000]},
+  {l:'Chauffe-eau électrique 100 L (2 u)', u:'u', q:2, p:[180000,260000,320000]},
+  {l:'Bac à laver + robinetterie (buanderie)', u:'forfait', q:1, p:[150000,250000,320000]},
+  {l:'Fosse septique béton + puits d\'épandage', u:'forfait', q:1, p:[550000,750000,1000000]}
+ ]},
+ {c:'H. ÉLECTRICITÉ', items:[
+  {l:'Câblage complet + tableau + mise à la terre', u:'forfait', q:1, p:[1200000,1700000,2400000]},
+  {l:'Appareillage, luminaires, éclairage extérieur', u:'forfait', q:1, p:[450000,800000,1200000]},
+  {l:'Raccordement CIE + compteur', u:'forfait', q:1, p:[250000,400000,500000]}
+ ]},
+ {c:'I. REVÊTEMENTS & FINITIONS', items:[
+  {l:'Carrelage sols grès (≈ 170 m²)', u:'m²', q:170, p:[5000,7500,11000]},
+  {l:'Faïence S.d.B. + cuisine (≈ 65 m²)', u:'m²', q:65, p:[4000,7000,10000]},
+  {l:'Peintures intérieures + extérieures', u:'forfait', q:1, p:[900000,1500000,2100000]},
+  {l:'Cuisine équipée + plans de travail', u:'forfait', q:1, p:[900000,1500000,2300000]},
+  {l:'Placards chambres + dressing', u:'forfait', q:1, p:[700000,1100000,1700000]}
+ ]},
+ {c:'J. EXTÉRIEUR', items:[
+  {l:'Clôture périphérique h ≈ 2 m (78 ml)', u:'ml', q:78, p:[24000,34000,50000]},
+  {l:'Portail coulissant motorisé', u:'u', q:1, p:[600000,900000,1300000]},
+  {l:'Pavés autobloquants allée (≈ 70 m²)', u:'m²', q:70, p:[9000,12000,16000]},
+  {l:'Raccordement SODECI', u:'forfait', q:1, p:[220000,350000,450000]},
+  {l:'Jardin + plantations', u:'forfait', q:1, p:[300000,600000,1000000]}
+ ]}
+];
+const PHASES = [
+ {n:'1', t:'Études, plans, permis', pc:4},
+ {n:'2', t:'Fondations (semelles, longrines)', pc:12},
+ {n:'3', t:'Élévation + dalle', pc:16},
+ {n:'4', t:'Maçonnerie + toiture (hors d\'eau)', pc:18},
+ {n:'5', t:'Plomberie, électricité, menuiseries', pc:20},
+ {n:'6', t:'Finitions (carrelage, peinture, cuisine)', pc:22},
+ {n:'7', t:'Extérieur (clôture, portail, pavés, jardin)', pc:8}
+];
+let curLvl = 'eco';
+function totalFor(lvl){
+  let s = 0;
+  DEV.forEach(cat=>cat.items.forEach(it=>{ s += it.q * it.p[{eco:0,std:1,prem:2}[lvl]]; }));
+  return s;
+}
+function renderDevis(){
+  const lvl = curLvl, idx = {eco:0, std:1, prem:2}[lvl];
+  const sub = totalFor(lvl);
+  const imp = sub * LEVELS[lvl].imp;
+  const total = sub + imp;
+  const cards = document.getElementById('devisCards');
+  cards.innerHTML = `
+    <div class="card"><b>${fmt(total)}</b><small>Budget total estimé (${LEVELS[lvl].name})</small></div>
+    <div class="card"><b>${fmt(total/195)}</b><small>Coût au m² couvert</small></div>
+    <div class="card"><b>${LEVELS[lvl].duree.split(' ')[0]}</b><small>Durée estimée — ${LEVELS[lvl].duree}</small></div>
+    <div class="card"><b>${fmt(PHASES[1].pc/100*total)}</b><small>Trésorerie phase 1 (fondations)</small></div>`;
+  let h = '<div class="panel"><table><tr><th>Désignation</th><th>Unité</th><th class="r">Qté</th><th class="r">P.U. (FCFA)</th><th class="r">Total (FCFA)</th></tr>';
+  DEV.forEach(cat=>{
+    let cs = 0;
+    cat.items.forEach(it=>{ cs += it.q*it.p[idx]; });
+    h += `<tr class="sub"><td colspan="5">${cat.c}</td></tr>`;
+    cat.items.forEach(it=>{
+      const t = it.q*it.p[idx];
+      h += `<tr><td>${it.l}</td><td>${it.u}</td><td class="r">${it.q.toLocaleString('fr-FR')}</td><td class="r">${it.p[idx].toLocaleString('fr-FR')}</td><td class="r">${t.toLocaleString('fr-FR')}</td></tr>`;
+    });
+    h += `<tr><td colspan="4" style="text-align:right"><b>Sous-total ${cat.c}</b></td><td class="r"><b>${cs.toLocaleString('fr-FR')}</b></td></tr>`;
+  });
+  h += `<tr><td colspan="4" style="text-align:right">Sous-total travaux + études</td><td class="r">${sub.toLocaleString('fr-FR')}</td></tr>`;
+  h += `<tr><td colspan="4" style="text-align:right">Imprévus et aléas (${(LEVELS[lvl].imp*100).toFixed(0)} %)</td><td class="r">${imp.toLocaleString('fr-FR')}</td></tr>`;
+  h += `<tr class="total"><td colspan="4">BUDGET TOTAL GÉNÉRAL</td><td class="r">${total.toLocaleString('fr-FR')} FCFA</td></tr>`;
+  h += `<tr><td colspan="4" style="text-align:right">Soit par m² couvert (195 m²)</td><td class="r">${Math.round(total/195).toLocaleString('fr-FR')} FCFA/m²</td></tr></table></div>`;
+  document.getElementById('devisTable').innerHTML = h;
+}
+function renderPhases(){
+  const lvl = curLvl;
+  const total = totalFor(lvl) * (1 + LEVELS[lvl].imp);
+  let h = '<tr><th>#</th><th>Phase de financement</th><th class="r">Part</th><th class="r">Montant (FCFA)</th></tr>';
+  PHASES.forEach(p=>{
+    h += `<tr><td>${p.n}</td><td>${p.t}</td><td class="r">${p.pc} %</td><td class="r">${Math.round(p.pc/100*total).toLocaleString('fr-FR')}</td></tr>`;
+  });
+  h += `<tr class="total"><td></td><td>TOTAL</td><td class="r">100 %</td><td class="r">${Math.round(total).toLocaleString('fr-FR')}</td></tr>`;
+  document.getElementById('phaseTable').innerHTML = h;
+}
+
+/* ---------- SURFACES ---------- */
+function renderSurfaces(){
+  let h = '<tr><th>Pièce</th><th class="r">Surface</th></tr>';
+  rooms.forEach(r=>{ h += `<tr><td>${r.n.charAt(0)+r.n.slice(1).toLowerCase().replace('s.d.b.','Salle de bain').replace('s.à m.','salle à manger')}</td><td class="r">${r.a.toLocaleString('fr-FR',{minimumFractionDigits:1})} m²</td></tr>`; });
+  h += '<tr class="total"><td>TOTAL EMPRISE (murs inclus)</td><td class="r">195,0 m²</td></tr>';
+  document.getElementById('surfacesTable').innerHTML = h;
+}
+
+/* ---------- TABS / BOUTONS ---------- */
+document.querySelectorAll('nav button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('main section').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    document.getElementById(b.dataset.t).classList.add('on');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+document.querySelectorAll('.lvlbtn').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.lvlbtn').forEach(x=>{x.classList.remove('on'); x.classList.add('btn2');});
+    b.classList.add('on'); b.classList.remove('btn2');
+    curLvl = b.dataset.lvl;
+    renderDevis(); renderPhases();
+  });
+});
+document.getElementById('bIso').addEventListener('click', ()=>{ if(window._3d) window._3d.iso(); markCtl('bIso'); });
+document.getElementById('bTop').addEventListener('click', ()=>{ if(window._3d) window._3d.top(); markCtl('bTop'); });
+document.getElementById('bRoof').addEventListener('click', function(){ if(window._3d) window._3d.roof(); this.classList.toggle('on'); });
+document.getElementById('bWalls').addEventListener('click', function(){ if(window._3d) window._3d.walls(); this.classList.toggle('on'); });
+document.getElementById('bSpin').addEventListener('click', function(){ if(window._3d) window._3d.spin(); this.classList.toggle('on'); });
+function markCtl(id){ document.querySelectorAll('#scene3d .ctl button').forEach(x=>{ if(['bIso','bTop'].includes(x.id)) x.classList.toggle('on', x.id===id); }); }
+
+/* ---------- INIT ---------- */
+renderPlan2D();
+renderMasse();
+renderSurfaces();
+renderDevis();
+renderPhases();
+
+/* ---------- 3D ---------- */
+window.__threeFailed = function(){
+  document.getElementById('fallback3d').style.display = 'block';
+};
+window.__init3D = function(THREE, OrbitControls){
+  try{
+    document.getElementById('fallback3d').style.display = 'none';
+    const box = document.getElementById('scene3d');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xe9eef2);
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 300);
+    const renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    box.appendChild(renderer.domElement);
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x8a8a7a, 0.9);
+    scene.add(hemi);
+    const sun = new THREE.DirectionalLight(0xfff2dd, 1.1);
+    sun.position.set(14, 24, 10);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(1024,1024);
+    scene.add(sun);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.maxPolarAngle = 1.52;
+    controls.target.set(0, 0.5, 0);
+
+    const to3 = p => [p[0]-W/2, p[1]-D/2];
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(21,21), new THREE.MeshLambertMaterial({color:0xa9c08c}));
+    ground.rotation.x = -Math.PI/2; ground.position.y = -0.03; scene.add(ground);
+    const street = new THREE.Mesh(new THREE.PlaneGeometry(30,8), new THREE.MeshLambertMaterial({color:0x74767a}));
+    street.rotation.x = -Math.PI/2; street.position.set(0,-0.02,13.5); scene.add(street);
+    const walk = new THREE.Mesh(new THREE.PlaneGeometry(30,1.4), new THREE.MeshLambertMaterial({color:0xbab7ae}));
+    walk.rotation.x = -Math.PI/2; walk.position.set(0,-0.01,10.7); scene.add(walk);
+    const drive = new THREE.Mesh(new THREE.PlaneGeometry(4.6,3.6), new THREE.MeshLambertMaterial({color:0xccc5b6}));
+    drive.rotation.x = -Math.PI/2; drive.position.set(-5.2,0.005,8.3); scene.add(drive);
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(W+0.4, 0.18, D+0.4), new THREE.MeshLambertMaterial({color:0xcfc8bb}));
+    slab.position.y = -0.09; scene.add(slab);
+
+    rooms.forEach((r,i)=>{
+      const shape = new THREE.Shape(r.p.map(p=>{ const c = to3(p); return new THREE.Vector2(c[0], c[1]); }));
+      const m = new THREE.Mesh(new THREE.ShapeGeometry(shape), new THREE.MeshLambertMaterial({color:new THREE.Color(COLORS[r.t])}));
+      m.rotation.x = -Math.PI/2; m.position.y = 0.012 + i*0.0008;
+      m.receiveShadow = true;
+      scene.add(m);
+    });
+
+    const wallsGroup = new THREE.Group();
+    function wallBoxes(wall, t, h){
+      const ax = wall.a[0]-W/2, az = wall.a[1]-D/2, bx = wall.b[0]-W/2, bz = wall.b[1]-D/2;
+      const dx = bx-ax, dz = bz-az, L = Math.hypot(dx,dz), ux = dx/L, uz = dz/L;
+      const pieces = [];
+      let cur = 0;
+      const gaps = wall.gaps.slice().sort((p,q)=>p[0]-q[0]);
+      gaps.forEach(gp=>{ pieces.push([cur, gp[0], 'full']); if(gp[2] > 0 && gp[2] <= h) pieces.push([gp[0], gp[1], Math.min(gp[2], h)]); cur = gp[1]; });
+      pieces.push([cur, L, 'full']);
+      pieces.forEach(pc=>{
+        let s = pc[0], e = pc[1];
+        const full = pc[2] === 'full';
+        if(full){ if(s === 0) s -= t/2; if(e === L) e += t/2; }
+        const len = e - s;
+        if(len <= 0.01) return;
+        const cx = ax + ux*(s+len/2), cz = az + uz*(s+len/2);
+        const hh = full ? h : pc[2];
+        const m = new THREE.Mesh();
+        if(Math.abs(dz) < 1e-6){
+          m.geometry = new THREE.BoxGeometry(len, hh, t);
+        } else {
+          m.geometry = new THREE.BoxGeometry(t, hh, len);
+        }
+        m.position.set(cx, hh/2, cz);
+        m.castShadow = true; m.receiveShadow = true;
+        wallsGroup.add(m);
+      });
+    }
+    let wallH = 1.4, roofOn = true, spin = false;
+    function rebuildWalls(){
+      while(wallsGroup.children.length) wallsGroup.remove(wallsGroup.children[0]);
+      eWalls.forEach(w=>wallBoxes(w, 0.2, wallH));
+      iWalls.forEach(w=>wallBoxes(w, 0.12, wallH));
+      [[11.6,13],[15,9.6],[15,13]].forEach(c=>{
+        const p = to3(c);
+        const col = new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.09,wallH,10), new THREE.MeshLambertMaterial({color:0xe8e2d8}));
+        col.position.set(p[0], wallH/2, p[1]); wallsGroup.add(col);
+      });
+      roof.position.y = wallH + 0.7;
+    }
+    const roof = new THREE.Mesh(new THREE.ConeGeometry(1, 1.4, 4), new THREE.MeshLambertMaterial({color:0x9aa1a8}));
+    roof.rotation.y = Math.PI/4;
+    roof.scale.set((W/2+0.6)/0.7071, 1, (D/2+0.6)/0.7071);
+    roof.castShadow = true;
+    scene.add(roof);
+    scene.add(wallsGroup);
+    rebuildWalls();
+
+    const fenceMat = new THREE.MeshLambertMaterial({color:0xd6cfc2});
+    [[0,-10.2,20.5,0.2],[-8.8,10.2,2.8,0.2],[3.7,10.2,13,0.2],[-10.2,0,0.2,20],[10.2,0,0.2,20]].forEach(f=>{
+      const m = new THREE.Mesh(new THREE.BoxGeometry(f[2],2,f[3]), fenceMat);
+      m.position.set(f[0],1,f[1]); scene.add(m);
+    });
+
+    function sprite(name, area, c){
+      const cv = document.createElement('canvas'); cv.width = 560; cv.height = 170;
+      const ctx = cv.getContext('2d');
+      ctx.fillStyle = 'rgba(255,255,255,0.92)';
+      const r = 22;
+      ctx.beginPath(); ctx.moveTo(r,0); ctx.lineTo(560-r,0); ctx.quadraticCurveTo(560,0,560,r); ctx.lineTo(560,170-r); ctx.quadraticCurveTo(560,170,560-r,170); ctx.lineTo(r,170); ctx.quadraticCurveTo(0,170,0,170-r); ctx.lineTo(0,r); ctx.quadraticCurveTo(0,0,r,0); ctx.fill();
+      ctx.strokeStyle = '#b3541e'; ctx.lineWidth = 4; ctx.stroke();
+      ctx.fillStyle = '#3a352c'; ctx.font = 'bold 46px Arial'; ctx.textAlign = 'center';
+      ctx.fillText(name, 280, 74);
+      ctx.fillStyle = '#8a7f6f'; ctx.font = '38px Arial';
+      ctx.fillText(area, 280, 132);
+      const tex = new THREE.CanvasTexture(cv);
+      const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:tex, depthTest:false}));
+      sp.scale.set(3.1, 0.94, 1);
+      sp.position.set(c[0], 1.9, c[1]);
+      scene.add(sp);
+    }
+    rooms.forEach(r=>{
+      const c = polyCenter(r);
+      const p = to3(c);
+      sprite(r.n, r.a.toLocaleString('fr-FR',{minimumFractionDigits:1})+' m²', p);
+    });
+
+    function resize(){
+      const w = box.clientWidth, hgt = box.clientHeight;
+      renderer.setSize(w, hgt);
+      camera.aspect = w/hgt;
+      camera.updateProjectionMatrix();
+    }
+    new ResizeObserver(resize).observe(box);
+    resize();
+    function animate(){
+      requestAnimationFrame(animate);
+      controls.autoRotate = spin;
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+    window._3d = {
+      iso(){ camera.position.set(19,15,19); controls.target.set(0,0.5,0); controls.update(); },
+      top(){ camera.position.set(0.01,30,0.01); controls.target.set(0,0,0); controls.update(); },
+      roof(){ roofOn = !roofOn; roof.visible = roofOn; },
+      walls(){ wallH = wallH === 1.4 ? 2.8 : 1.4; rebuildWalls(); },
+      spin(){ spin = !spin; }
+    };
+    window.__threedone = true;
+  }catch(e){ window.__threeFailed(e); }
+};
+setTimeout(()=>{ if(!window.__threedone) window.__threeFailed(); }, 8000);
+</script>
+</body>
+</html>
